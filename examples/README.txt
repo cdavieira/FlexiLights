@@ -85,7 +85,10 @@ Programas que fazem uso da API podem ser incorporados ao Prismatik enquanto plug
 Os plugins podem ser escritos em diferentes linguagens de programação e muitos exemplos de APIs para linguagens diferentes se encontram disponíveis em:
 https://github.com/psieg/Lightpack/tree/master/Software/apiexamples
 
-
+A escrita de plugins é explicada aqui: https://github.com/psieg/Lightpack/blob/master/Software/res/plugin-template.ini
+Decidi escrever o plugin em Python e por isso precisei baixa-lo para que pudesse executar o plugin quando fosse inicializado.
+Fiz um teste relativamente simples de plugin, no qual pude rodar um plugin que salva as informações das leituras do LED em um arquivo.txt.
+O plugin feito por mim se encontra na pasta 'test', sendo necessario copiar essa pasta e cola-la em '$HOME/Prismatik/Plugins/' para que fique disponível para uso no Prismatik.
 
 
 
