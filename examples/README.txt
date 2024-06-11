@@ -88,7 +88,7 @@ https://github.com/psieg/Lightpack/tree/master/Software/apiexamples
 A escrita de plugins é explicada aqui: https://github.com/psieg/Lightpack/blob/master/Software/res/plugin-template.ini
 Decidi escrever o plugin em Python e por isso precisei baixa-lo para que pudesse executar o plugin quando fosse inicializado.
 Fiz um teste relativamente simples de plugin, no qual pude rodar um plugin que salva as informações das leituras do LED em um arquivo.txt.
-O plugin feito por mim se encontra na pasta 'test', sendo necessario copiar essa pasta e cola-la em '$HOME/Prismatik/Plugins/' para que fique disponível para uso no Prismatik.
+Os plugins feito por mim se encontram na pasta 'Prismatik/Plugins/', sendo necessario copiar essa pasta e cola-la em '$HOME/Prismatik/Plugins/' para que fique disponível para uso no Prismatik.
 
 
 
@@ -111,3 +111,31 @@ https://github.com/adafruit/Adalight/tree/master
 
 O passo a passo do que copiar e onde colar pode ser encontrado aqui:
 https://learn.adafruit.com/adalight-diy-ambient-tv-lighting/download-and-install
+
+https://docs.arduino.cc/retired/hacking/software/PortManipulation/
+https://forum.arduino.cc/t/arduino-due-ports-manipulation/452044/4
+https://forum.arduino.cc/t/arduino-due-how-to-direrct-port-access/251656
+
+Existem dois softwares principais nesse projeto.
+O primeiro é o programa rodado pelo computador (escrito em processing), que é responsável por ler a tela do computador, identificar as cores, codifica-las e envia-las ao arduino.
+O segundo é o programa que roda no arduino (escrito em c++), que é responsável por decodificar o sinal proveniente do computador e ativar os leds.
+O software do computador envia para o Arduino um buffer, que é composto por:
+	1. uma palavra chave (3 bytes)
+	2. LED count high byte (1 byte)
+	3. LED count low byte (1 byte)
+	4. checksum (1 byte)
+	5. Pacotes de 3 inteiros representando as cores dos leds (N * 3 bytes, onde N é o número de LEDs em uso)
+o LED count high e low byte constroem um número de 2 bytes quando juntos, que corresponde ao número de LEDs em uso.
+O checksum feito está em função desses dois bytes, o que possibilita o código cliente conferir o checksum reconstruindo-o usando o high e low byte do LED count.
+É necessário reescrever o código cliente que é usado no Arduino, uma vez que o código disponibilizado no tutorial do Adalight é muito antigo e utiliza alguns recursos não tão apropriados para o nosso setup (SPI, por exemplo).
+
+
+
+# Comparação entre os dois métodos
+Uma vantagem do método #2 sobre o método #1 é que como se tem acesso ao código que será executado no computador, é possível salvar as informações que são mandadas para o Arduino em tempo real. Além disso, também se tem mais controle sobre as informações de RGB que serão enviadas para o Arduino, uma vez que é possível editar o código e fazermos o que bem quisermos com as informações do RGB.
+
+Uma desvantagem do método #2 seria ter que reescrever o código cliente para o nosso setup do Arduino, o que não seria tão dificil visto que seria parecido com o código cliente usado pelo método #1.
+
+Outra desvantagem do método #2 é que não foi testado ainda, enquanto o método #1 já foi.
+
+Uma vantagem do método #1 sobre o método #1 é que já é uma solução muito mais pronto para uso, já oferencendo suporte para 3 tipos diferentes de captura de sinal para ser enviado para o Arduino (cores da tela, som e +1). Além disso, o esquema de plugins oferecido pelo Lightpack também permite interagir com o software que lê a tela enquanto esse é executado, o que já não é possível com o método #2.
