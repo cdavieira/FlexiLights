@@ -113,7 +113,7 @@ def read_input_data(filename: str) -> LedStripDebugger:
         print(e)
         raise e
 
-debugger = read_input_data('replay.txt')
+debugger = read_input_data('replay3.txt')
 debugger.position_squares()
 debugger.list_states()
 window = set_mode()
