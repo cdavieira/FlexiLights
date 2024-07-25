@@ -11,7 +11,7 @@
 #define LEDS_PER_PANEL 9
 #define NUM_PANELS NUM_LEDS/LEDS_PER_PANEL
 #define DATA_PIN 5
-#define DEFAULT_BRIGHTNESS 20
+#define DEFAULT_BRIGHTNESS 100
 
 // Baudrate, higher rate allows faster refresh rate and more LEDs (defined in /etc/boblight.conf)
 #define serialRate 9600
