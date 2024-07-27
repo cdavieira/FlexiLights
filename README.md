@@ -105,6 +105,52 @@ os painéis a partir desse sinal.
 
 ## 3. Desenvolvimento: Hardware
 
+### 3.1 Lista de materiais
+* Fita Adalight WS2812
+* Imas de neodímio
+* Modelo de impressão de 3D do módulo
+* Material para impressora 3D
+* Solda
+
+### 3.2 Confecção
+A confecção de 1 módulo consiste em basicamente 4 etapas:
+1. Impressão 3D do painel
+2. Confecção da parte elétrica interna do módulo
+3. Preparo dos encaixes com ímã de neodímio
+4. Soldagem da parte elétrica aos ímas e aos leds
+
+#### 3.2.1 Impressão 3D do painel
+A impressão 3D de 1 módulo requer uma impressora 3D funcional e o arquivo de
+modelo de um módulo. Para além disso, é necessário configurar corretamente a
+impressora 3D e esperar que a impressão do módulo termine.
+
+#### 3.2.2 Confecção da parte elétrica interna
+O circuito elétrico interno utilizado nos módulos consiste em 3 canais, sendo
+um para o sinal de controle, um para o positivo e outro para o negativo. Um
+esboço do projeto eletrico segue ilustrado abaixo:
+![Projeto eletrico](./assets/projeto-eletrico.png)
+
+#### 3.2.3 Preparo dos encaixes com íma de neodímio
+Os ímas de neodímio correspondem a uma das partes mais importantes do projeto,
+pois esses conectores são responsável tanto por unir diferentes painéis como
+por conduzir eletricamente o sinal de controle e da alimentação. Esses ímas
+devem ser soldados juntos a algo metalico, como um prego que tenha os lados
+lixados, para facilitar na pega da solda e também impedir com que os ímãs
+percam o magnetismo.
+
+#### 3.2.4 Soldagem da parte elétrica aos ímas
+Uma vez que os encaixes com íma de neodímio e os circuitos elétricos estejam
+prontos, chega a hora de posicionar também a fita de led no interior do
+painel. Para isso, a fita de led deve ser seccionada em grupos de 3 em 3 LEDs.
+
+Com os grupos de 3 LEDs em mãos, é necessário iniciar a solda dos circuitos
+elétricos aos ímãs de neodímio (que nesse momento são posicionados nas
+laterais do modulo) e também aos LEDs, que devem ser posicionados nas
+entremidades internas do painel triangular, para que quando acesos se
+assemelhem a imagem abaixo.
+
+![Imagem do painel em funcionamento](./assets/aceso.jpeg)
+
 
 ## 4. Desafios do projeto
 Dentre algumas das decisões de projeto tomadas para tornar tanto a confecção
