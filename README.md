@@ -132,6 +132,7 @@ manualmente e, portanto, sem padronização.
 ## 5. Conclusão
 O flexilights é um produto que atingiu seu objetivo inicial em baratear o
 custo da solução existente no mercado.
+![Custos estimados da confecção do produto](./assets/custos.png)
 
 
 ## 6. Referências
