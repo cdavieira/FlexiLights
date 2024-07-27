@@ -37,14 +37,13 @@ void setup() {
   LEDS.showColor(CRGB(0, 0, 0));
   
   Serial.begin(serialRate);
-  Serial3.begin(serialRate);  
+
   // Send "Magic Word" string to host
   Serial.print("Ada\n");
 }
 
 void loop() { 
   // Wait for first byte of Magic Word
-
   for(i = 0; i < sizeof prefix; ++i) {
     waitLoop: while (!Serial.available()) ;;
     // Check next byte in Magic Word
@@ -70,22 +69,7 @@ void loop() {
 
   memset(leds, 0, NUM_LEDS * sizeof(struct CRGB));
 
-  /*
   // Read the transmission data and set LED values
-  for (uint8_t i = 0; i < NUM_LEDS; i++) {
-    byte r, g, b;    
-    while(!Serial.available());
-    r = Serial.read();
-    while(!Serial.available());
-    g = Serial.read();
-    while(!Serial.available());
-    b = Serial.read();
-    leds[i].r = r;
-    leds[i].g = g;
-    leds[i].b = b;
-  }
-  */
-
   for (uint8_t i = 0; i < NUM_PANELS; i++) {
     byte r, g, b;    
     while(!Serial.available());
@@ -94,11 +78,6 @@ void loop() {
     g = Serial.read();
     while(!Serial.available());
     b = Serial.read();
-
-    Serial3.print("RGB:");
-    Serial3.print(r);
-    Serial3.print(g);
-    Serial3.println(b);
 
     for(uint8_t j = 0; j < LEDS_PER_PANEL; j++){
       leds[i*LEDS_PER_PANEL + j].r = r;
