@@ -1,5 +1,8 @@
 # FlexiLights
 
+![Amostra](./assets/amostra.jpeg)
+
+
 ## 1. Introdução
 **FlexiLights** é um produto de decoração que busca tornar ambientes mais
 confortáveis e agradáveis ao público, não deixando de lado a praticidade no
@@ -7,6 +10,10 @@ seu uso.
 
 A ideia por trás dos painéis modulares de LED é de sincronizar com as imagens
 que se passam em uma tela, de modo a exibir as cores dominantes ali presentes.
+
+![Imagem dos modulos feitos](./assets/modulos.jpeg)
+
+![Imagem de um modulo em funcionamento](./assets/aceso.jpeg)
 
 
 ### 1.1 Objetivo
